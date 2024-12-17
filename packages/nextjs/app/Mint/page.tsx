@@ -1,72 +1,113 @@
 "use client";
 
-import Link from "next/link";
-import type { NextPage } from "next";
+import { useState } from "react";
+import { formatEther } from "viem";
 import { useAccount } from "wagmi";
-import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { Address } from "~~/components/scaffold-eth";
+import { AddressInput } from "~~/components/scaffold-eth";
+import { IntegerInput } from "~~/components/scaffold-eth";
+import { useDeployedContractInfo } from "~~/hooks/scaffold-eth";
+import { useScaffoldReadContract } from "~~/hooks/scaffold-eth/useScaffoldReadContract";
+import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth/useScaffoldWriteContract";
 
-const Home: NextPage = () => {
-  const { address: connectedAddress } = useAccount();
+const Mint: React.FC = () => {
+  const [selectedToken, setSelectedToken] = useState<"TokenA" | "TokenB">("TokenA");
+  const [address, setAddress] = useState("");
+  const [amountToMint, setAmountToMint] = useState<string | bigint>("");
+  const [tokenImage, setTokenImage] = useState("/images/tokenA.png"); // Ruta local inicial
+
+  const account = useAccount();
+
+  // Obtener información del contrato seleccionado desde deployedContracts
+  const { data: contractInfo } = useDeployedContractInfo(selectedToken);
+
+  // Leer balance del token seleccionado
+  const { data: tokenBalance } = useScaffoldReadContract({
+    contractName: selectedToken,
+    functionName: "balanceOf",
+    args: [account?.address ?? ""],
+  });
+
+  // Preparar la función para realizar mint
+  const { writeContractAsync: mintTokens } = useScaffoldWriteContract(selectedToken);
+
+  const handleMint = async () => {
+    if (!contractInfo) {
+      console.error("Contract information not found for selected token:", selectedToken);
+      return;
+    }
+
+    try {
+      await mintTokens({
+        functionName: "mint",
+        args: [address, BigInt(amountToMint || 0)],
+      });
+    } catch (e) {
+      console.error("Error during minting:", e);
+    }
+  };
+
+  // Cambiar la imagen según el token seleccionado
+  const handleTokenChange = (token: "TokenA" | "TokenB") => {
+    setSelectedToken(token);
+
+    // Diccionario para las imágenes locales de cada token
+    const tokenImages: Record<"TokenA" | "TokenB", string> = {
+      TokenA: "/images/tokenA.png", // Ruta local de TokenA
+      TokenB: "/images/tokenB.png", // Ruta local de TokenB
+    };
+
+    setTokenImage(tokenImages[token]);
+  };
 
   return (
-    <>
-      <div className="flex items-center flex-col flex-grow pt-10">
-        <div className="px-5">
-          <h1 className="text-center">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">Scaffold-ETH 2</span>
-          </h1>
-          <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row">
-            <p className="my-2 font-medium">Connected Address:</p>
-            <Address address={connectedAddress} />
-          </div>
+    <div className="flex items-center flex-col text-center mt-8 p-10">
+      <div className="card glass bg-base-100 w-96 shadow-xl">
+        <figure>
+          <img src={tokenImage} alt="Token Image" />
+        </figure>
+        <div className="card-body">
+          <h2 className="card-title">Mint your Tokens</h2>
 
-          <p className="text-center text-lg">
-            Get started by editing{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/nextjs/app/page.tsx
-            </code>
-          </p>
-          <p className="text-center text-lg">
-            Edit your smart contract{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              YourContract.sol
-            </code>{" "}
-            in{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/hardhat/contracts
-            </code>
-          </p>
-        </div>
+          {/* Selector de Token */}
+          <label className="block text-left">Select Token</label>
+          <select
+            className="select select-bordered w-full"
+            value={selectedToken}
+            onChange={e => handleTokenChange(e.target.value as "TokenA" | "TokenB")}
+          >
+            <option value="TokenA">TokenA</option>
+            <option value="TokenB">TokenB</option>
+          </select>
 
-        <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
-          <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <BugAntIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Tinker with your smart contract using the{" "}
-                <Link href="/debug" passHref className="link">
-                  Debug Contracts
-                </Link>{" "}
-                tab.
-              </p>
-            </div>
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Explore your local transactions with the{" "}
-                <Link href="/blockexplorer" passHref className="link">
-                  Block Explorer
-                </Link>{" "}
-                tab.
-              </p>
-            </div>
+          {/* Balance */}
+          <label className="block text-left mt-4">Actual Amount</label>
+          <input className="input input-bordered w-full" disabled value={formatEther(tokenBalance || BigInt(0))} />
+
+          <label className="block text-left">Amount to mint</label>
+          <IntegerInput
+            value={amountToMint?.toString() || ""} // Convertimos a string
+            onChange={updatedAmount => {
+              setAmountToMint(updatedAmount); // Aquí asumimos que updatedAmount es siempre un string
+            }}
+            placeholder="value (wei)"
+          />
+
+          {/* Dirección del receptor */}
+          <label className="block text-left">To</label>
+          <AddressInput onChange={setAddress} value={address} placeholder="Input recipient address" />
+
+          <div className="card-actions justify-end">
+            <button
+              className={`btn btn-primary w-full mt-2 ${!contractInfo ? "btn-disabled" : ""}`}
+              onClick={handleMint}
+            >
+              Mint Now
+            </button>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
-export default Home;
+export default Mint;

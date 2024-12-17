@@ -9,11 +9,13 @@ contract TokenA is ERC20, Ownable {
  constructor()
         ERC20("TokenA", "TKA")
         Ownable(msg.sender)
-            {
+    {
         _mint(msg.sender, 1000 * 10 ** decimals());
     }
 
-    function mint(address to, uint256 amount) public onlyOwner {
+    function mint(address to, uint256 amount) public {
         _mint(to, amount);
     }
 }
+
+
