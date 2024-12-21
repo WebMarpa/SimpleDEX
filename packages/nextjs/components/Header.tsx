@@ -15,14 +15,14 @@ type HeaderMenuLink = {
 };
 
 export const menuLinks: HeaderMenuLink[] = [
-  {
-    label: "Home",
-    href: "/",
-  },
+  // {
+  //   label: "Home",
+  //   href: "/",
+  // },
 
   {
     label: "Swap",
-    href: "/Swap",
+    href: "/",
     icon: <ArrowsRightLeftIcon className="h-4 w-4" />,
   },
   {
@@ -35,11 +35,11 @@ export const menuLinks: HeaderMenuLink[] = [
     href: "/Mint",
     icon: <TagIcon className="h-4 w-4" />,
   },
-  {
-    label: "Debug Contracts",
-    href: "/debug",
-    icon: <BugAntIcon className="h-4 w-4" />,
-  },
+  // {
+  //   label: "Debug Contracts",
+  //   href: "/debug",
+  //   icon: <BugAntIcon className="h-4 w-4" />,
+  // },
 ];
 
 export const HeaderMenuLinks = () => {
@@ -109,7 +109,7 @@ export const Header = () => {
             <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" />
           </div>
           <div className="flex flex-col">
-            <span className="font-bold leading-tight">Scaffold-ETH</span>
+            <span className="font-bold leading-tight">SimpleDEX</span>
             <span className="text-xs">By Mario Parodi</span>
           </div>
         </Link>
