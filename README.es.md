@@ -8,17 +8,17 @@
 
 ### 🗂️ Contenido
 
-1. [Descripción](#-que-es-simpldex)
-2. [Características Clave](#-caracteristicas-clave)
+1. [Descripción](#-qué-es-simpledex)
+2. [Características Clave](#-características-clave)
 3. [Capturas de Pantalla](#-capturas-de-pantalla)
-4. [Herramientas y Tecnologías](#️-herramientas-y-tecnologias)
-5. [Requisitos](#️-requisitos)
-6. [Inicio Rápido](#-inicio-rapido)
-7. [Cómo Funciona](#️-como-funciona)
+4. [Herramientas y Tecnologías](#️-herramientas-y-tecnologías)
+5. [Requisitos](#-requisitos)
+6. [Inicio Rápido](#-inicio-rápido)
+7. [Cómo Funciona](#️-cómo-funciona)
 8. [Agradecimientos](#-agradecimientos)
 9. [Licencia](#-licencia)
 
-### 📖 ¿Qué es SimpleDEX? {#-que-es-simpldex}
+### 📖 #¿Qué es SimpleDEX? 
 
 **SimpleDEX** es un intercambio descentralizado (DEX) basado en un modelo *Automated Market Maker (AMM)* utilizando la fórmula de producto constante: 
 
@@ -74,13 +74,13 @@ La curva de producto constante describe cómo cambian los precios de los tokens 
 
 ![Curva de Producto Constante](./packages/nextjs/public/images/Curve%20amm-es.png)
 
-### 📌 Características Clave {#-caracteristicas-clave}
+### 📌 Características Clave 
 
 - **Proveer Liquidez**: Los usuarios pueden agregar tokens al pool.
 - **Intercambio de Tokens**: Permite intercambios directos entre dos tokens.
 - **Retirar Liquidez**: Recupera los tokens proporcionados.
 
-### 📸 Capturas de Pantalla {#-capturas-de-pantalla}
+### 📸 Capturas de Pantalla 
 
 Aquí tienes algunas capturas de pantalla de la DApp en funcionamiento:
 
@@ -93,11 +93,13 @@ Aquí tienes algunas capturas de pantalla de la DApp en funcionamiento:
 3. **Generar Tokens**  
    ![Captura de Pantalla 3](./packages/nextjs/public/images/Mint%20Tokens.jpg)
 
-### 🛠️ Herramientas y Tecnologías {#️-herramientas-y-tecnologias}
+### 🛠️ Herramientas y Tecnologías 
 
 ![Scaffold-ETH](https://img.shields.io/badge/Scaffold--ETH-gray?style=plastic&logo=ethereum) ![Next.js](https://img.shields.io/badge/Next.js-black?style=plastic&logo=next.js) ![React](https://img.shields.io/badge/React-blue?style=plastic&logo=react) ![Solidity](https://img.shields.io/badge/Solidity-darkblue?style=plastic&logo=solidity) ![Hardhat](https://img.shields.io/badge/Hardhat-lightgray?style=plastic&logo=ethereum) ![Wagmi](https://img.shields.io/badge/Wagmi-orange?style=plastic&logo=react) ![Viem](https://img.shields.io/badge/Viem-purple?style=plastic&logo=ethereum) ![DaisyUI](https://img.shields.io/badge/DaisyUI-green?style=plastic&logo=tailwindcss) ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-cyan?style=plastic&logo=tailwindcss) ![Vercel](https://img.shields.io/badge/Vercel-000000?style=plastic&logo=vercel&logoColor=white)
 
-### 📝 Requisitos {#️-requisitos}
+
+
+### 📝 Requisitos
 
 Antes de comenzar, asegúrate de tener instaladas las siguientes herramientas:
 
@@ -105,7 +107,7 @@ Antes de comenzar, asegúrate de tener instaladas las siguientes herramientas:
 - Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) o [v2+](https://yarnpkg.com/getting-started/install))
 - [Git](https://git-scm.com/downloads)
 
-### 🚀 Inicio Rápido {#-inicio-rapido}
+### 🚀 Inicio Rápido 
 
 Para comenzar con **SimpleDEX**, sigue estos pasos:
 
@@ -141,7 +143,7 @@ yarn start
 
 Visita tu aplicación en: `http://localhost:3000`. ya Puedes interactuar con tu Dapp SimpleDEX`.
 
-### ⚙️ Cómo Funciona {#️-como-funciona}
+### ⚙️ Cómo Funciona 
 
 Sigue estos pasos para usar la DApp:
 
@@ -161,7 +163,7 @@ Sigue estos pasos para usar la DApp:
    Recupera tu liquidez.
 
 ---
-### 🙏 Agradecimientos {#-agradecimientos}
+### 🙏 Agradecimientos 
 
 Este proyecto fue desarrollado como parte del **[Ethereum Developer Pack](https://www.ethkipu.org/es#edp)** ofrecido por **[ETH-Kipu](https://www.ethkipu.org/es)**. 
 
@@ -171,7 +173,7 @@ Un agradecimiento especial a mis instructores:
 
 Su mentoría ha sido fundamental en mi camino hacia el desarrollo de blockchain y programación en Solidity.
 
-### 📝 Licencia {#-licencia}
+### 📝 Licencia 
 
 Este proyecto está licenciado bajo la **Licencia MIT**. 
 

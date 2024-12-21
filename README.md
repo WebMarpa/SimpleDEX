@@ -8,17 +8,17 @@
 
 ### 🗂️ Contents
 
-1. [Description](#-what-is-simpldex)
+1. [Description](#-what-is-simpledex)
 2. [Key Features](#-key-features)
 3. [Screenshots](#-screenshots)
 4. [Tools and Technologies](#️-tools-and-technologies)
-5. [Requirements](#️-requirements)
+5. [Requirements](#-requirements)
 6. [Quick Start](#-quick-start)
 7. [How It Works](#️-how-it-works)
 8. [Acknowledgments](#-acknowledgments)
 9. [License](#-license)
 
-### 📖 What is SimpleDEX? {#-what-is-simpldex}
+### 📖 What is SimpleDEX? 
 
 
 **SimpleDEX** is a decentralized exchange (DEX) based on an *Automated Market Maker (AMM)* model using the constant product formula: 
@@ -82,7 +82,7 @@ The constant product curve describes how token prices change based on their quan
 - **Token swaps**: Enables direct swaps between two tokens.
 - **Withdraw liquidity**: Recovers the tokens provided.
 
-### 📸 Screenshots {#-screenshots}
+### 📸 Screenshots 
 
 Here are some screenshots of the DApp in action:
 
@@ -99,7 +99,7 @@ Here are some screenshots of the DApp in action:
 
 ![Scaffold-ETH](https://img.shields.io/badge/Scaffold--ETH-gray?style=plastic&logo=ethereum) ![Next.js](https://img.shields.io/badge/Next.js-black?style=plastic&logo=next.js) ![React](https://img.shields.io/badge/React-blue?style=plastic&logo=react) ![Solidity](https://img.shields.io/badge/Solidity-darkblue?style=plastic&logo=solidity) ![Hardhat](https://img.shields.io/badge/Hardhat-lightgray?style=plastic&logo=ethereum) ![Wagmi](https://img.shields.io/badge/Wagmi-orange?style=plastic&logo=react) ![Viem](https://img.shields.io/badge/Viem-purple?style=plastic&logo=ethereum) ![DaisyUI](https://img.shields.io/badge/DaisyUI-green?style=plastic&logo=tailwindcss) ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-cyan?style=plastic&logo=tailwindcss) ![Vercel](https://img.shields.io/badge/Vercel-000000?style=plastic&logo=vercel&logoColor=white)
 
-### 📝 Requirements {#️-requirements}
+### 📝 Requirements
 
 Before you start, make sure to install the following tools:
 
@@ -107,7 +107,7 @@ Before you start, make sure to install the following tools:
 - Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
 - [Git](https://git-scm.com/downloads)
 
-### 🚀 Quick Start {#-quick-start}
+### 🚀 Quick Start 
 
 To get started with **SimpleDEX**, follow these steps:
 
@@ -142,7 +142,7 @@ yarn start
 
 Visit your application at: `http://localhost:3000`. Now you can interact with your **SimpleDEX** Dapp.
 
-### ⚙️ How It Works {#️-how-it-works}
+### ⚙️ How It Works 
 
 Follow these steps to use the DApp:
 
@@ -162,7 +162,7 @@ Follow these steps to use the DApp:
    Retrieve your liquidity along.
 
 ---
-### 🙏 Acknowledgments {#-acknowledgments}
+### 🙏 Acknowledgments 
 
 This project was developed as part of the **[Ethereum Developer Pack](https://www.ethkipu.org/es#edp)** offered by **[ETH-Kipu](https://www.ethkipu.org/es)**. 
 
@@ -173,7 +173,7 @@ A special thanks to my instructors:
 Their mentorship has been instrumental in my journey into blockchain development and Solidity programming.
 
 
-### 📝 License {#-}
+### 📝 License 
 
 This project is licensed under the **MIT License**. 
 
